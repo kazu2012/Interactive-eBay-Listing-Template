@@ -1,4 +1,4 @@
-window.iq = (function(){
+var iq = (function(){
 	return {
 		id: function(id) {
 			return document.getElementById(id);
