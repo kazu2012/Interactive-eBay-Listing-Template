@@ -1,0 +1,402 @@
+<table id="mblTbl" border="0" cellspacing="0" cellpadding="0" width="100%" class="mblParCon" id="mblParCon">
+	<style>
+		/*============================RESETS==============================*/
+		div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, font, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		caption, tbody, tfoot, thead, tr, th, td {
+			margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+		/*============================CONTAINER==============================*/
+		.mblFadeWrapper {display:none;position:fixed;top:0;left:0;height:100%;width:100%;background:rgba(0, 0, 0, 0.5);z-index:5000;}
+		.mblWrpr {position:relative;width: 90%;margin: 10px auto 10px auto;height:auto;border-radius: 5px;box-shadow: inset 0 0 10px #383838, inset 0 0 10px #383838, inset 0 0 10px #383838;background:Linen;padding: 10px;text-align: center;font-family:"Baskerville";}
+		/*============================HEADER==============================*/
+		.mblHdr {text-align: left;padding: 10px;border-bottom: 1px solid LightSlateGray;}
+		.mblHOne {font-size: 36px;}
+		.star {color: #32cd32;font-size:22px;}
+		.ten {color:inherit;}
+		/*============================SLIDESHOW==============================*/
+		#mblSlide {position:relative;height:200px;width:360px;max-width:100%;margin:auto;}
+		#mblSlide img {display:none;position:absolute;top:0;left:0;height:100%;width:100%;}
+		#mblThumbs {width:100%;height:80px;margin:5px auto;}
+		#mblThumbs img {height:80px;width:auto;display:inline-block;border:1px solid #fff;}
+		#mblThumbs img:hover {cursor:pointer;border:1px solid #66e2e3;}
+		/*============================MAIN NAVIGATION==============================*/
+		.mblLstNav {margin-bottom: 10px;width:100%;height:40px;line-height:40px;border-radius:3px;background:#383838;}
+		.menu-trigger {display:none;}
+		.mblUL li {position:relative;list-style-type: none;display:inline-block;margin-right:-4px;width:20%;text-align: center;}
+		.mblUL li:first-child {border-top-left-radius: 2px; border-bottom-left-radius: 2px;}
+		.mblUL li:last-child {border-top-right-radius: 2px; border-bottom-right-radius: 2px;}
+		.mblUL li a {display:block;padding:0 8px 0 8px;text-decoration: none;color:#66e2e3;}
+		.mblUL li .triangle {display:none;position:absolute;top:50px;left:50%;margin-top:-5px;margin-left:-5px;height:0;width:0;border-right:10px solid transparent;border-left:10px solid transparent;border-bottom:10px solid #66e2e3;}
+		.mblUL li:hover {background:rgba(0, 0, 0, 0.3);}
+		/*============================MOBILE NAVIGATION==============================*/
+		.menu-trigger {position:relative;height:40px;width:80px;z-index:9999;}
+		.menu-trigger:hover {cursor:pointer;}
+		.bar {position:absolute;left:0;height:5px;width:100%;background:#fff;}
+		.bar.uno {top:7px;}
+		.bar.dos {top:17px;}
+		.bar.tres {top:27px;}
+		#mblMobile {display:none;position:absolute;top:20%;left:50%;margin:-top:-125px;margin-left:-100px;height:250px;width:200px;background:#383838;z-index:9999}
+		.mblMM li {list-style-type:none;height:49px;line-height:49px;border-bottom:1px solid #000;}
+		.mblMM li a {display:block;color:#66e2e3;text-decoration:none;}
+		.mblMM li:hover {background:rgba(0,0,0,0.3);}
+		/*============================SECTION DIVIDER==============================*/
+		.divider {margin: 10px 0 10px 0;}
+		.divider:last-child {margin: 10px 0 20px 0;}
+		.divider img {height: 1px;width: 100%;}
+		/*============================SECTION HEADER & PARAGRAPH==============================*/
+		p.mblDescHdr {text-align: left;font-size: 22px;color:#888888;text-decoration: underline;}
+		p.mblParaDesc {margin-bottom:20px;text-align: left;font-size:18px;color:#383838;}
+		p.mblParaDesc:last-child {margin-bottom:5px;}
+		/*============================HIDDEN==============================*/
+		.mblHide {display:none;margin-bottom:30px;}
+		/*============================FOOTER==============================*/
+		.mblBackToTop {display:none;}
+		.mblFtr {position:absolute;bottom:0;left:0;width:100%;height:22px;line-height: 22px;background:#383838;text-align: center;}
+		.mblFtr p {color:#66e2e3;}
+		/*============================MEDIA QUERIES==============================*/
+		@media only screen and (max-width: 866px) {
+			.mblUL li:not(.menu-trigger){display:none;}.menu-trigger{display:block;margin:auto;}
+			.mblBackToTop {display:block;position:absolute;bottom:25px;right:5px;}
+		}
+		@media only screen and (max-width: 677px) {
+			#mblThumbs img {height:40px;}
+		}
+	</style>
+	<tbody>
+		<tr>
+			<td>
+				<div class="mblWrpr">
+					<div class="mblFadeWrapper"></div>
+					<header class="mblHdr">
+						<img alt="Moblah Phones" src="http://www.moblah.com/img/moblah.png" class="mblHdrImg">
+						<div class="mblLstNav">
+							<div class="menu-trigger">
+								<div class="bar uno"></div>
+								<div class="bar dos"></div>
+								<div class="bar tres"></div>
+							</div>
+							<ul class="mblUL">
+								<li>
+									<a href="javascript:;" data-name="desc">Item Description</a>
+									<div class="triangle"></div>
+								</li>
+								<li>
+									<a href="javascript:;" data-name="acc">Included Accessories</a>
+									<div class="triangle"></div>
+								</li>
+								<li>
+									<a href="javascript:;" data-name="ship">Shipping</a>
+									<div class="triangle"></div>
+								</li>
+								<li>
+									<a href="javascript:;" data-name="ret">Returns</a>
+									<div class="triangle"></div>
+								</li>
+								<li>
+									<a href="javascript:;" data-name="feed">Feedback</a>
+									<div class="triangle"></div>
+								</li>
+							</ul>
+						</div>
+					</header>
+
+					<div id="mblMobile">
+						<ul class="mblMM">
+							<li><a href="javascript:;" data-name="desc">Description</a></li>
+							<li><a href="javascript:;" data-name="acc">Accessories</a></li>
+							<li><a href="javascript:;" data-name="ship">Shipping</a></li>
+							<li><a href="javascript:;" data-name="ret">Returns</a></li>
+							<li><a href="javascript:;" data-name="feed">Feedback</a></li>
+						</ul>
+					</div>
+
+					<div class="mblItmDesc">
+						<h1 class="mblHOne">Unlocked Galaxy S3 SGH-T999 - Pebble Blue</h1>
+						<p>9/10</p>
+						<div class="stars">
+							<span class="star one">&#9734;</span><span class="star two">&#9734;</span><span class="star three">&#9734;</span><span class="star four">&#9734;</span><span class="star five">&#9734;</span><span class="star six">&#9734;</span><span class="star seven">&#9734;</span><span class="star eight">&#9734;</span><span class="star nine">&#9734;</span><span class="star ten">&#9734;</span>
+						</div>
+
+						<div id="mblSlide">
+							<a href="http://www.moblah.com/ebay/temp1.jpg" target="blank"><img data-name="one" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp1.jpg"></a>
+							<a href="http://www.moblah.com/ebay/temp2.jpg" target="blank"><img data-name="two" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp2.jpg"></a>
+							<a href="http://www.moblah.com/ebay/temp3.jpg" target="blank"><img data-name="three" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp3.jpg"></a>
+							<a href="http://www.moblah.com/ebay/temp4.jpg" target="blank"><img data-name="four" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp4.jpg"></a>
+						</div>
+
+						<div id="mblThumbs">
+							<img data-name="one" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp1.jpg">
+							<img data-name="two" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp2.jpg">
+							<img data-name="three" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp3.jpg">
+							<img data-name="four" alt="Moblah on eBay" src="http://www.moblah.com/ebay/temp4.jpg">
+						</div>
+
+						<div class="divider">
+							<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+						</div>
+
+						<div class="mblHide" data-name="desc">
+							<p class="mblDescHdr">Item Description:</p>
+							<p class="mblParaDesc">NOTE: This phone can be used on any GSM carrier worldwide EXCEPT T-MOBILE. Blocked on T-Mobile for non-payment. Excellent condition, around 9 out of 10. The screen is great. There a c couple light scratches on the battery cover. 100% functional, clean IMEI (except on T-Mobile) and permanently unlocked.</p>
+							<div class="divider">
+								<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+							</div>
+						</div>
+
+						<div class="mblHide" data-name="acc">
+							<p class="mblDescHdr">Included Accessories:</p>
+							<p class="mblParaDesc">Listing is for phone only, no box, charger or other accessories included.</p>
+								<div class="divider">
+									<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+								</div>
+						</div>
+
+						<div class="mblHide" data-name="ship">
+							<p class="mblDescHdr">Domestic Shipping:</p>
+							<p class="mblParaDesc">We ship same day if payment is completed by 12:30pm PST, or the very next business day if payment is completed after that. All items are shipped with tracking, and signature is required on all items listed at $250 or more.</p>
+							<div class="divider">
+								<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+							</div>
+							<p class="mblDescHdr">International Shipping:</p>
+							<p class="mblParaDesc">Moblah is pleased to offer shipping to any country worldwide. We ship USPS Express Mail International with full tracking and signature required. PLEASE NOTE: we cannot mark any item as a gift, and we must declare the full value for insurance purposes, so please be aware that you may have to pay Customs Duties on your end.</p>
+							<div class="divider">
+								<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+							</div>
+						</div>
+
+						<div class="mblHide" data-name="ret">
+							<p class="mblDescHdr">Returns:</p>
+							<p class="mblParaDesc">You may return an item for any reason within 14 days of delivery. We are happy to pay your return shipping in all cases, however returns for any reason other than "not as described" are subject to a 10-15% re-stocking fee.</p>
+							<div class="divider">
+								<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+							</div>
+						</div>
+
+						<div class="mblHide" data-name="feed">
+							<p class="mblDescHdr">Feedback:</p>
+							<p class="mblParaDesc">Please get in touch with us before leaving negative feedback. Your satisfaction is our number one priority and we will do our very best to make sure you are satisfied with your purchase.</p>
+							<div class="divider">
+								<img alt="" src="http://www.moblah.com/img/divider-line3.png">
+							</div>
+						</div>
+					</div><!-- .mblItmDesc -->
+					<a class="mblBackToTop" href="javascript:;">back to top</a>
+					<div class="mblFtr">
+						<p>
+							Listing by Notice Everything Creative
+						</p>
+					</div>
+				</div><!-- .mblWrpr -->
+			</td>
+		</tr>
+	</tbody>
+
+		<script>
+
+		var iq = (function(){
+			return {
+
+				tag: function(tag) {
+					return document.getElementsByTagName(tag);
+				},
+
+				sel: function(sel) {
+					return document.querySelector(sel);
+				},
+
+				selAll: function(sel) {
+					return document.querySelectorAll(sel);
+				},
+
+				show: function(el) {
+					return el.style.display = 'block';
+				},
+
+				hide: function(el) {
+					return el.style.display = 'none';
+				},
+
+				fadeOut: function(ms, el) {
+					var opacity = 1,
+					interval = 50,
+					gap = interval / ms;
+
+					function func() {
+						opacity -= gap;
+						el.style.opacity = opacity;
+
+						if(opacity <= 0) {
+							window.clearInterval(fading);
+							el.style.display = 'none';
+						}
+					}
+					var fading = window.setInterval(func, interval);
+				},
+
+				fadeIn: function(ms, el) {
+					var opacity = 0,
+				    interval = 50,
+				    gap = interval / ms;
+				    
+				  	el.style.display = 'block';
+				  	el.style.opacity = opacity;
+				  
+				  	function func() { 
+				    	opacity += gap;
+				    	el.style.opacity = opacity;
+				    
+				    	if(opacity >= 1) {
+				      		window.clearInterval(fading);
+				    	}
+				  	}
+				  
+				  	var fading = window.setInterval(func, interval);
+				  
+				},
+
+				click: function(el, handler) {
+					return [].forEach.call(iq.selAll(el), function(el) {
+   						el.addEventListener('click', handler, false);
+   					});
+				},
+
+				hasClass: function(el, cls) {
+					return el.classList.contains(cls);
+				},
+
+				addClass: function(el, cls) {
+					return el.classList.add(cls);
+				},
+
+				removeClass: function(el, cls) {
+					return el.classList.remove(cls);
+				},
+
+				addOrRemoveClass: function(el, cls) {
+					if (iq.hasClass(el, cls)) {
+						return el.classList.remove(cls);
+					} else {
+						return el.classList.add(cls);
+					}
+				},
+
+				map: function(el, attr) {
+					var arr = [];
+					el = iq.tag(el);
+					for (var i = 0; i < el.length; i++) {
+						var x = el[i].getAttribute(attr);
+						arr.push(x);
+					}
+					return arr;
+				},
+
+				scrollWindow: function(el) {
+					el = iq.sel(el);
+
+					window.scrollTo(0, findPos(el));
+
+					function findPos(obj) {
+					    var curtop = 0;
+					    if (obj.offsetParent) {
+					        do {
+					            curtop += obj.offsetTop;
+					        } while (obj = obj.offsetParent);
+					    return [curtop];
+					    }
+					}
+				}
+			};
+		})();
+
+		// Elements to show on window load	
+		iq.show(iq.sel('#mblSlide img:first-child'));
+		iq.show(iq.sel('div[data-name="desc"]'));
+		iq.sel('.mblUL li:first-child:not(.menu-trigger)').style.background = '#66e2e3';
+		iq.sel('.mblUL li:first-child a').style.color = '#383838';
+		iq.show(iq.sel('.mblUL li:first-child .triangle'));
+
+		// Toggling Menu Items and Styles
+		iq.click('li a', function(){
+			var dn = iq.map('a', 'data-name');
+			for (var i = 0; i < dn.length; i++) {
+				if (this.getAttribute('data-name') === dn[i]) {
+					var toHide = iq.selAll('.mblHide:not([data-name=' + dn[i] + '])');
+					iq.fadeIn(500, iq.sel('.mblHide[data-name="' + dn[i] + '"]'));
+					for (var j = 0; j < toHide.length; j++) {
+						toHide[j].style.display = 'none';
+					}
+
+					// Highlight Selected Menu Item
+					iq.sel('a[data-name="' + dn[i] + '"]').style.color = '#383838';
+					iq.sel('a[data-name="' + dn[i] + '"]').parentNode.style.background = '#66e2e3';
+					iq.sel('a[data-name="' + dn[i] + '"]').parentNode.children[1].style.display = 'block';
+
+					// Un-Highlight Last Selected Menu Item
+					var unHighlight = iq.selAll('.mblUL a:not([data-name="' + dn[i] + '"])');
+					for (var k = 0; k < unHighlight.length; k++) {
+						unHighlight[k].style.color = '';
+						unHighlight[k].parentNode.style.background = '';
+						unHighlight[k].parentNode.children[1].style.display = '';
+					}
+				}
+			}
+		});
+
+		// Scrolling Window on Mobile Nav Click
+		iq.click('.mblMM li a', function(){
+			iq.hide(iq.sel('#mblMobile'));
+			iq.fadeOut(100, iq.sel('.mblFadeWrapper'));
+			iq.removeClass(iq.sel('.menu-trigger'), 'open');
+			var dn = iq.map('a', 'data-name');
+			for (var i = 0; i < dn.length; i++) {
+				if (this.getAttribute('data-name') === dn[i]) {
+					iq.scrollWindow('.mblHide[data-name="' + dn[i] + '"]');
+				}
+			}
+		});
+
+		// Back-To-Top Button
+		iq.click('.mblBackToTop', function(){
+			iq.scrollWindow('.mblWrpr');
+		});
+
+		// Toggling Images
+		iq.click('#mblThumbs img', function(){
+			var dn = iq.map('img', 'data-name');
+			for (var i = 0; i < dn.length; i++) {
+			    if (this.getAttribute('data-name') === dn[i]) {
+			        var outs = iq.selAll('#mblSlide img:not([data-name="' + dn[i] + '"])');
+			        for (var j = 0; j < outs.length; j++) {
+			            iq.fadeOut(100, outs[j]);
+			        }
+			        iq.fadeIn(200, iq.sel('#mblSlide img[data-name="' + dn[i] + '"]'));
+			    }
+			}
+
+		});
+
+		// Toggling Mobile Menu and Fade Wrapper
+		iq.click('.menu-trigger', function(){
+			iq.addOrRemoveClass(this, 'open');
+			if (iq.hasClass(this, 'open')) {
+				iq.fadeIn(100, iq.sel('.mblFadeWrapper'));
+				iq.fadeIn(200, iq.sel('#mblMobile'));
+			} else {
+				iq.fadeOut(100, iq.sel('#mblMobile'));
+				iq.fadeOut(200, iq.sel('.mblFadeWrapper'));
+			} 
+		});
+
+		iq.click('.mblFadeWrapper', function(){
+			iq.fadeOut(100, this);
+			iq.fadeOut(200, iq.sel('#mblMobile'));
+			iq.removeClass(iq.sel('.menu-trigger'), 'open');
+		});
+
+		</script>
+</table>
