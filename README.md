@@ -12,7 +12,7 @@ Using iQuery methods defined in iQuery.js:
 
 iq.id('elementID') // document.getElementById('id')
 
-iq.tag('tagName') // document.getElementsByTagName(;'tagName');
+iq.tag('tagName') // document.getElementsByTagName('tagName');
 
 iq.sel('selector') // document.querySelector('selector');
 
